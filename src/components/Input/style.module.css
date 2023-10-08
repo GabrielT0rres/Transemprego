@@ -1,34 +1,26 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap');
-.input{
-    border: 1px solid rgba(0, 0, 0, 0.499);
+.input {    
     border-radius: 5px;
     padding-left: 10px;
-    
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.325);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 440px;
     height: 40px;
     outline: none;
+    border: 1px solid rgba(0, 0, 0, 0.499);
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.325);
 }
-.label{
+
+.label {
     font-size: 16px;
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
-    padding-left: 8px;
     margin-bottom: 5px;
 }
 
-.div{
-    display: grid;
-    justify-content: center;
-    align-items: center;
+.div {
+    display: flex;
+    flex-direction: column;
 }
-.input::-webkit-input-placeholder{
+
+.input::-webkit-input-placeholder {
     font-size: 16px;
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
-
 }
-

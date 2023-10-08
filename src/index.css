@@ -1,21 +1,201 @@
-*{
-  padding: 0;    
-  margin: 0;
-  box-sizing: border-box;
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2? family= Inter:wght@800 & display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
-.pink_100 {
-    color : #F7D6E6;
+/* a cor primaria do site é o pink */
+/* primaria 100 */
+.primary_100 {
+    color: #F7D6E6;
 }
 
-.bg_pink_100 {
-    background-color : #F7D6E6;
+.bg_primary_100 {
+    background-color: #F7D6E6;
 }
 
-.pink_200 {
+/* primaria 200 */
+.primary_200 {
     color: #EFADCE;
 }
 
-.bg_pink_200 {
+.bg_primary_200 {
     background-color: #EFADCE;
+}
+
+/* primaria 300 */
+.primary_300 {
+    color: #E685B5;
+}
+
+.bg_primary_300 {
+    background-color: #E685B5;
+}
+
+/* primaria 400 */
+.primary_400 {
+    color: #DE5C9D;
+}
+
+.bg_primary_400 {
+    background-color: #DE5C9D;
+}
+
+/* primaria 500 */
+.primary_500 {
+    color: #D63384;
+}
+
+.bg_primary_500 {
+    background-color: #D63384;
+}
+
+/* primaria 600 */
+.primary_600 {
+    color: #AB296A;
+}
+
+.bg_primary_600 {
+    background-color: #AB296A;
+}
+
+/* primaria 700 */
+.primary_700 {
+    color: #801F4F;
+}
+
+.bg_primary_700 {
+    background-color: #801F4F;
+}
+
+/* primaria 800 */
+.primary_800 {
+    color: #561435;
+}
+
+.bg_primary_800 {
+    background-color: #561435;
+}
+
+/* primaria 900 */
+.primary_900 {
+    color: #2B0A1A;
+}
+
+.bg_primary_900 {
+    background-color: #2B0A1A;
+}
+
+/* Tons de Preto */
+/* preto 100 */
+.black_100 {
+    color: #000000;
+}
+
+.bg_black_100 {
+    background-color: #000000;
+}
+
+/* preto 200 */
+.black_200 {
+    color: #131314;
+}
+
+.bg_black_200 {
+    background-color: #131314;
+}
+
+
+/* preto 300 */
+.black_300 {
+    color: #1A1C1E;
+}
+
+.bg_black_300 {
+    background-color: #1A1C1E;
+}
+
+
+/* preto 400 */
+.black_400 {
+    color: #212529;
+}
+
+.bg_black_400 {
+    background-color: #212529;
+}
+
+/* preto 500 */
+.black_500 {
+    color: #343A40;
+}
+
+.bg_black_500 {
+    background-color: #343A40;
+}
+
+/* preto 600 */
+.black_600 {
+    color: #495057;
+}
+
+.bg_black_600 {
+    background-color: #495057;
+}
+
+/* preto 700 */
+.black_700 {
+    color: #6C757D;
+}
+
+.bg_black_700 {
+    background-color: #6C757D;
+}
+
+/* preto 800 */
+.black_800 {
+    color: #ADB5BD;
+}
+
+.bg_black_800 {
+    background-color: #ADB5BD;
+}
+
+/* preto 900 */
+.black_900 {
+    color: #CED4DA;
+}
+
+.bg_black_900 {
+    background-color: #CED4DA;
+}
+
+/* preto 1000 */
+.black_1000 {
+    color: #DEE2E6;
+}
+
+.bg_black_1000 {
+    background-color: #DEE2E6;
+}
+
+/* preto 1100 */
+.black_1100 {
+    color: #E9ECEF;
+}
+
+.bg_black_1100 {
+    background-color: #E9ECEF;
+}
+
+/* preto 1200 */
+.black_1200 {
+    color: #F8F9FA;
+}
+
+.bg_black_1200 {
+    background-color: #F8F9FA;
 }

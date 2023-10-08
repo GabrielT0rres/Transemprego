@@ -1,33 +1,30 @@
-
 .input {
-    display: flex;             
-    align-items: center;      
+    display: flex;
+    align-items: center;
     border: 1px solid #D63384;
-    border-radius: 42px;     
-    position: relative;     
-    padding: 10px;    
-    padding-left:20px; 
-    width: 300px;
-    margin:10px;
-      
+    border-radius: 42px;
+    position: relative;
+    padding: 10px;
+    padding-left: 20px;
+    max-width: 300px;
 }
 
 .input input[type="text"] {
-    width:cal(100%-5px);      
-    border: none;              
-    padding-right: 30px;  
-    outline: none;          
+    width: cal(100%-5px);
+    border: none;
+    padding-right: 30px;
+    outline: none;
 
     ::placeholder {
-        color: #ADB5BD;    
-        font-weight: 800;    
+        color: #ADB5BD;
+        font-weight: 800;
     }
 }
 
 
 .input img {
-    position: absolute;      
-    right: 20px;              
-    height: 20px;           
-    cursor: pointer;      
+    position: absolute;
+    right: 20px;
+    height: 20px;
+    cursor: pointer;
 }

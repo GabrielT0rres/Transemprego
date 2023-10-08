@@ -5,9 +5,7 @@
     border-radius: 42px;          
     overflow: hidden;              
     position: relative; 
-    width: 200px;  
-    margin:10px;
-    
+    max-width: 200px;      
 }
 .select select:not(:focus):invalid {
     color: #D63384;      /* Cor para a primeira opção quando ela estiver selecionada */
