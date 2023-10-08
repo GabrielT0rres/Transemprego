@@ -1,0 +1,38 @@
+.select {
+    display: flex;                
+    align-items: center;          
+    border: 1px solid #D63384;    
+    border-radius: 42px;          
+    overflow: hidden;              
+    position: relative; 
+    width: 200px;  
+    margin:10px;
+    
+}
+.select select:not(:focus):invalid {
+    color: #D63384;      /* Cor para a primeira opção quando ela estiver selecionada */
+}
+
+.select select {
+    flex-grow:1;
+    padding: 10px;    
+    padding-left:20px;  
+    box-sizing: border-box;              
+    border: none;           
+     font-weight: 700;      
+    appearance: none;              
+    -webkit-appearance: none;     
+    -moz-appearance: none;        
+    background: transparent;      
+    color: #000000;                     
+    cursor: pointer; 
+}     
+.select select:focus {
+    outline: none;
+}       
+
+.select span {
+    position: absolute;           
+    right: 20px;                  
+    pointer-events: none;         
+}
