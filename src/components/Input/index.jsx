@@ -17,7 +17,7 @@ const Input = (props) => {
         className={`${style.label}`}>
         {props.label}</label>
       <input
-        type="text"
+        type={props.type}
         name={props.nome}
         id={props.id}
         placeholder={props.placeholder}

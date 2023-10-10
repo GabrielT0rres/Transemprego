@@ -1,0 +1,26 @@
+.card{
+    display: flex;
+    flex-direction: column;  
+    align-items: flex-start; 
+    border: 3px solid black;
+    padding: 30px;
+    width: 380px;     
+    border-radius: 42px;     
+}
+.card h6{
+    color:#6C757D;
+    font-size:15px;
+
+}
+.card h3{
+    color: #495057;
+    font-size:25px;
+}
+.card h1{
+    color: #000000;
+    font-weight: 700;
+    font-size:35px;
+}
+.card a{
+    margin-top:20px;
+}

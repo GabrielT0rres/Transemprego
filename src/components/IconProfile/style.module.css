@@ -1,0 +1,11 @@
+.icon {
+    display:flex;
+  align-items:center;
+}
+.icon img{
+    margin-right: 10px;
+    object-fit: contain;
+}
+.icon p{
+    margin:0;
+}

@@ -1,49 +1,21 @@
-import Input  from './components/Input'
-import FilterInput from './components/FilterInput'
-import FilterSelect from './components/FilterSelect'
-import ButtonRound from './components/ButtonRound'
-import ButtonFlat from './components/ButtonFlat'
+import { Routes, Route } from 'react-router-dom'
+import Home from './pages/Home'
+import Vagas from './pages/Vagas'
+import Login from './pages/Login'
+import Cadastro from './pages/Cadastro'
+import PerfilCadastro from './pages/PerfilCadastro'
 
 function App() {
 
   return (
-    <>      
-      <Input
-        id='nome'
-        name='E-mail'
-        placeholder='Digite seu nome...'
-        label="Nome completo:" />
-      
-      <FilterInput 
-        placeholder="Área de atuação..."
-      />
-      <FilterInput
-        placeholder="Empresa..."
-      />
-
-      <FilterSelect
-        defaultOption="Estado" 
-        options={['Bahia', 'São Paulo', 'Rio de Janeiro']} 
-      />
-      <FilterSelect
-        defaultOption="Ensino" 
-        options={['Opção 4', 'Opção 5', 'Opção 6']} 
-      />
-      <FilterSelect
-        defaultOption="Tipo" 
-        options={['Opção 1', 'Opção 2', 'Opção 3']} 
-      />
-      
-      <ButtonRound
-        id='btn'
-        nome='Candidatar'
-        value='Candidatar'
-      />
-
-      <ButtonFlat nome="Cadastrar vaga"
-      
-      />
-      
+    <>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/vagas' element={<Vagas />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/cadastro' element={<Cadastro />} />
+        <Route path='/perfil/cadastro' element={<PerfilCadastro />} />
+      </Routes>
     </>
   )
 }

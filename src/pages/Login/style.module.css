@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.h1{
+    height: 40px;
+    margin: 0;
+}
+.p{
+    margin: 0;
+    height: 20px;
+}
+.Input_email {
+
+}
+
+.Input_senha {
+
+}
+
+.div_login {
+    border: 2px solid rgba(0, 0, 0, 0.399);
+    border-radius: 10px;
+    width: 400px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 30px;
+    padding: 20px;
+    margin: 20px auto;   
+
+}
+.link{
+    color: #d06398;
+    text-decoration: none;    
+}

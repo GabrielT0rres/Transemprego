@@ -6,7 +6,6 @@ const ButtonRound = (props) => {
             <button
                 nome={props.nome}
                 value={props.value}
-                id={props.id}
                 className={`${style.btn} bg_primary_500`}>
                 {props.nome}
             </button>

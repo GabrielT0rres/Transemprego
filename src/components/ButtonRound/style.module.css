@@ -5,11 +5,11 @@
     color: #ffffff;
     border: 1px solid transparent;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.43);
-    font-size: 24px;
+    font-size: 20px;
     font-weight: bolder;
     font-family: 'Inter', sans-serif;    
     border-radius: 42px;
-    padding: 5px;
+    padding: 5px 15px;
 }
 .div_btn{
     display:flex;
