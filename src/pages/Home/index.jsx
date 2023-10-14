@@ -3,6 +3,8 @@ import Navbar from '../../components/Navbar'
 import FilterInput from '../../components/FilterInput'
 import FilterSelect from '../../components/FilterSelect'
 import Card from '../../components/Card'
+import {CARDS_DATA} from '../../constants/contants'
+import ButtonFlat from '../../components/ButtonFlat'
 const Home = () => {
     return (
         <div className={style.home}>
@@ -21,9 +23,21 @@ const Home = () => {
                     <FilterSelect defaultOption="Tipo" options={['Bahia','São Paulo','Minas Gerais']}/>
                 </div>
                 <div className={style.cards}>
-                    <Card empresa="Atlas Shinidezer" vaga="Assistente Administrativo" local="Cascavel, PR" />
-                    <Card empresa="Hospital Sírio-Libanês" vaga="Técnico de Serviços Junior" local="Curitiba, PR" />
+                {CARDS_DATA.map((card, index) => (
+                <Card 
+                    key={index} 
+                    empresa={card.empresa} 
+                    vaga={card.vaga} 
+                    local={card.local}
+                />
+            ))}
                 </div>
+                <div className={style.mais}>
+                <ButtonFlat nome="Mais Oportunidades"/>
+                </div>
+                <footer className={style.footer}>
+
+                    </footer>
             </div>
     )
 }

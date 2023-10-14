@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const Login = () => {
     return (
-        <div className={`${style.div_login} bg_black_1200`}>
+        <div className={`${style.div_login} bg_black_1200 `}>
             <div>
                 <h1 className={`${style.h1} mb-4`}>Login</h1>
                 <p className={`${style.p}`}>Novo neste site? <Link className={`${style.link}`}>Registre-se</Link></p>

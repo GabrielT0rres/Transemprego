@@ -1,0 +1,27 @@
+.mais{
+    margin-top: 20px;
+    padding: 50px;
+   }
+
+   .container{
+    padding:30px;
+    display:flex;
+    flex-wrap: wrap;
+    gap:30px;
+   }
+
+.inputs {
+    width: 100%;
+}
+@media screen and (min-width: 826px) {
+    .inputs {
+        width: 48%;
+    }
+}
+.label{
+    margin-top: 40px;
+    font-weight: 700;
+    font-size:35px;
+    margin-left:5%;
+    border-bottom: 5px solid #EFADCE;
+}
