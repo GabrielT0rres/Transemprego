@@ -29,30 +29,43 @@ const CardDragDrop = (props) => {
     };
 
     if (files) return (
-        <div className="uploads">
-            <ul>
-                {Array.from(files).map((file, idx) => <li key={idx}>{file.name}</li>)}
-            </ul>
-            <div className="actions">
-                <button onClick={() => setFiles(null)}>Cancel</button>
-                <button onClick={handleUpload}>Upload</button>
-            </div>
+        <div
+            className={`${style.dropzone}`}
+            onDragOver={handleDragOver}
+            onDrop={handleDrop}>
+
+            <img src={icon}
+                className={`${style.icone}`}
+                alt=""
+                onClick={() => inputRef.current.click()}
+            />
+            {Array.from(files).map((file, idx) => <p className={`${style.texto}`} key={idx}>{file.name}</p>)}
+
+            <input
+                className={`${style.input_file}`}
+                ref={inputRef}
+                type="file"
+                multiple
+                onChange={(event) => setFiles(event.target.files)}
+                hidden
+                accept="image/png, image/jpeg"
+            />
         </div>
     )
 
     return (
         <>
             <div
-                className={`${style.dropzone}`} 
+                className={`${style.dropzone}`}
                 onDragOver={handleDragOver}
                 onDrop={handleDrop}>
 
                 <img src={icon}
-                    className={`${style.icone}`} 
+                    className={`${style.icone}`}
                     alt=""
                     onClick={() => inputRef.current.click()}
                 />
-                <p>Envie seu currículo em PDF.</p>
+                <p className={`${style.texto}`} >Envie seu currículo em PDF.</p>
                 <input
                     className={`${style.input_file}`}
                     ref={inputRef}
