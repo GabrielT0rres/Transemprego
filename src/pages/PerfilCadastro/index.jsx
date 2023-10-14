@@ -9,7 +9,7 @@ const PerfilCadastro = () => {
 
 
     return (
-        <div className={`d-flex flex-column h-100`}>
+        <div className={`d-flex flex-column `}>
             <Navbar />
             <div className={` ${style.card} d-flex flex-column  justify-content-center gap-3`} >
                 <div className={`d-flex flex-wrap gap-3`}>
