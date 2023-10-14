@@ -16,6 +16,7 @@ const Input = (props) => {
       <label htmlFor={props.id}
         className={`${style.label}`}>
         {props.label}</label>
+      
       <input
         type={props.type}
         name={props.nome}
