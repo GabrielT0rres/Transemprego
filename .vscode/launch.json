@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-TransEmpregoApplication<TransEmprego>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.desenvolvimento.TransEmprego.TransEmpregoApplication",
+            "projectName": "TransEmprego",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

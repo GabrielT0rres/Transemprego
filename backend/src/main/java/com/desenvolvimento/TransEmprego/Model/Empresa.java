@@ -16,16 +16,15 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "tb_empresa")
-public class Empresa extends User {
+public class Empresa extends User  {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idEmpresa;
+    private Long id;
     private String nomeFantasia;
     private String razaoSocial;
     private String cnpj;
     private String cep;
     private String endereco;
-    private String logradouro;    
-
+    private String logradouro;
 }
