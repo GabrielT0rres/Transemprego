@@ -54,7 +54,7 @@ public class Vaga {
     @JoinTable(name = "tb_usuario_vagas", 
             joinColumns = @JoinColumn(name = "vaga_id"), 
             inverseJoinColumns = @JoinColumn(name = "usuario_id"))
-    private Set<Usuario> usuarios;   
+    private Set<Usuario> usuarios = new HashSet<>();   
 
     public Vaga(VagaDTO dto) {
         this.id = dto.getId();
