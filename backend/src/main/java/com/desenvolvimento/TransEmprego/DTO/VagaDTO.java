@@ -45,8 +45,6 @@ public class VagaDTO {
         this.requisitos = vaga.getRequisitos();
         this.descricaoVaga = vaga.getDescricaoVaga();
         this.empresa = vaga.getEmpresa();
-        this.usuarios = vaga.getUsuarios();
-        
-        
+        this.usuarios = vaga.getUsuarios();                
     }
 }

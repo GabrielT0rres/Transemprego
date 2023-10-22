@@ -1,5 +1,7 @@
 package com.desenvolvimento.TransEmprego.Model;
 
+import com.desenvolvimento.TransEmprego.DTO.EmpresaDTO;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -27,4 +29,15 @@ public class Empresa extends User  {
     private String cep;
     private String endereco;
     private String logradouro;
+
+    
+    public Empresa(EmpresaDTO dto) {
+        this.id = dto.getId();
+        this.nomeFantasia = dto.getNomeFantasia();
+        this.razaoSocial = dto.getRazaoSocial();
+        this.cnpj = dto.getCnpj();
+        this.cep = dto.getCep();
+        this.endereco = dto.getEndereco();
+        this.logradouro = dto.getLogradouro();        
+    }
 }

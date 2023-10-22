@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,6 +23,7 @@ import com.desenvolvimento.TransEmprego.Service.VagaService;
 
 @RestController
 @RequestMapping("/vagas")
+@CrossOrigin(origins = "*")
 public class VagaController {
 
     @Autowired
@@ -55,7 +57,7 @@ public class VagaController {
         return ResponseEntity.ok().body(vagaService.update(dto, id));
     }
 
-    @DeleteMapping
+    @DeleteMapping(value = "/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         vagaService.delete(id);
         return ResponseEntity.noContent().build();
