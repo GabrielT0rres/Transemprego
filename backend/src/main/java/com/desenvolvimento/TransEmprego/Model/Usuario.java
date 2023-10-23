@@ -3,6 +3,8 @@ package com.desenvolvimento.TransEmprego.Model;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.desenvolvimento.TransEmprego.DTO.UsuarioDTO;
+import com.desenvolvimento.TransEmprego.DTO.VagaDTO;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Entity;
@@ -32,8 +34,19 @@ public class Usuario extends User {
     private String nomeSocial;
     private String endereco;
     private String objetivoProfissional;
-
     @JsonIgnore
     @ManyToMany(mappedBy = "usuarios")
-    private Set<Vaga> vagas;
+    private Set<Vaga> vagas = new HashSet<>();
+
+    public Usuario(UsuarioDTO usuarioDTO) {
+        this.id = usuarioDTO.getId();
+        this.nomeCompleto = usuarioDTO.getNomeCompleto();
+        this.nomeSocial = usuarioDTO.getNomeSocial();
+        this.endereco = usuarioDTO.getEndereco();
+        this.objetivoProfissional = usuarioDTO.getObjetivoProfissional();
+
+        usuarioDTO.getVagas().forEach(vaga -> {
+            this.vagas.add(new Vaga(vaga));
+        });
+    }
 }

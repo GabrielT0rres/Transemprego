@@ -30,7 +30,7 @@ public class VagaDTO {
     private String requisitos;
     private String descricaoVaga;
     private Empresa empresa;
-    private Set<Usuario> usuarios = new HashSet<>();
+    private Set<UsuarioDTO> usuarios = new HashSet<>();
 
     public VagaDTO(Vaga vaga) {
         this.id = vaga.getId();
@@ -45,6 +45,9 @@ public class VagaDTO {
         this.requisitos = vaga.getRequisitos();
         this.descricaoVaga = vaga.getDescricaoVaga();
         this.empresa = vaga.getEmpresa();
-        this.usuarios = vaga.getUsuarios();                
+
+        vaga.getUsuarios().forEach(usuario -> {
+            this.usuarios.add(new UsuarioDTO (usuario));
+        });       
     }
 }
