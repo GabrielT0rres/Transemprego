@@ -23,7 +23,8 @@ public class UsuarioService {
 
     @Transactional(readOnly = true)
     public UsuarioDTO findById(Long id) {
-        return new UsuarioDTO(usuarioRepository.findById(id).get());
+        Usuario usuario = usuarioRepository.findById(id).get();
+        return new UsuarioDTO(usuario, usuario.getVagas());
     }
 
     @Transactional

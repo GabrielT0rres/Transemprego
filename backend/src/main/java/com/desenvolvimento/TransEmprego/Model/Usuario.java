@@ -34,7 +34,6 @@ public class Usuario extends User {
     private String nomeSocial;
     private String endereco;
     private String objetivoProfissional;
-    @JsonIgnore
     @ManyToMany(mappedBy = "usuarios")
     private Set<Vaga> vagas = new HashSet<>();
 
