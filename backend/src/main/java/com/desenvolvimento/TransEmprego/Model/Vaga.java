@@ -1,10 +1,8 @@
 package com.desenvolvimento.TransEmprego.Model;
 
-import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
-import com.desenvolvimento.TransEmprego.DTO.UsuarioDTO;
 import com.desenvolvimento.TransEmprego.DTO.VagaDTO;
 
 import jakarta.persistence.Column;
@@ -29,7 +27,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Entity
 @Table(name = "tb_vaga")
-public class Vaga {	
+public class Vaga {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -52,10 +50,8 @@ public class Vaga {
     private Empresa empresa;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "tb_usuario_vagas", 
-            joinColumns = @JoinColumn(name = "vaga_id"), 
-            inverseJoinColumns = @JoinColumn(name = "usuario_id"))
-    private Set<Usuario> usuarios = new HashSet<>();   
+    @JoinTable(name = "tb_usuario_vagas", joinColumns = @JoinColumn(name = "vaga_id"), inverseJoinColumns = @JoinColumn(name = "usuario_id"))
+    private Set<Usuario> usuarios = new HashSet<>();
 
     public Vaga(VagaDTO dto) {
         this.id = dto.getId();
@@ -71,7 +67,7 @@ public class Vaga {
         this.descricaoVaga = dto.getDescricaoVaga();
         this.empresa = dto.getEmpresa();
         dto.getUsuarios().forEach(usuario -> {
-            this.usuarios.add(new Usuario (usuario));
-        }); 
+            this.usuarios.add(new Usuario(usuario));
+        });
     }
 }

@@ -4,7 +4,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 import com.desenvolvimento.TransEmprego.Model.Empresa;
-import com.desenvolvimento.TransEmprego.Model.Usuario;
 import com.desenvolvimento.TransEmprego.Model.Vaga;
 
 import lombok.AllArgsConstructor;
