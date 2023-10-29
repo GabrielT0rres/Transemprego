@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,7 +22,6 @@ import com.desenvolvimento.TransEmprego.Service.EmpresaService;
 
 @RestController
 @RequestMapping("/empresa")
-@CrossOrigin(origins = "*")
 public class EmpresaController {
 
     @Autowired
@@ -38,7 +37,9 @@ public class EmpresaController {
         return ResponseEntity.ok().body(empresaService.findById(id));
     }
 
+    
     @PostMapping
+    @PreAuthorize("hasRole('ROLE_EMPRESA')")
     public ResponseEntity<EmpresaDTO> create(@RequestBody EmpresaDTO dto) {
         EmpresaDTO dtoSalvo = empresaService.create(dto);
         URI lcoation = ServletUriComponentsBuilder
@@ -51,11 +52,13 @@ public class EmpresaController {
     }
 
     @PutMapping(value = "/{id}")
+    @PreAuthorize("hasRole('ROLE_EMPRESA')")
     public ResponseEntity<EmpresaDTO> update(@RequestBody EmpresaDTO dto, @PathVariable Long id) {
         return ResponseEntity.ok().body(empresaService.update(dto, id));
     }
 
     @DeleteMapping(value = "/{id}")
+    @PreAuthorize("hasRole('ROLE_EMPRESA')")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         empresaService.delete(id);
         return ResponseEntity.noContent().build();

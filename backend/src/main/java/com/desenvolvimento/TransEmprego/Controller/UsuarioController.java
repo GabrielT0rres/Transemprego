@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,7 +22,6 @@ import com.desenvolvimento.TransEmprego.Service.UsuarioService;
 
 @RestController
 @RequestMapping("/usuario")
-@CrossOrigin(origins = "*")
 public class UsuarioController {
 
     @Autowired
@@ -37,8 +36,9 @@ public class UsuarioController {
     public ResponseEntity<UsuarioDTO> getOne(@PathVariable Long id) {
         return ResponseEntity.ok().body(usuarioService.findById(id));
     }
-
+    
     @PostMapping
+    @PreAuthorize("hasRole('ROLE_USUARIO')")
     public ResponseEntity<UsuarioDTO> create(@RequestBody UsuarioDTO dto) {
         UsuarioDTO dtoSalvo = usuarioService.create(dto);
         URI lcoation = ServletUriComponentsBuilder
@@ -51,11 +51,13 @@ public class UsuarioController {
     }
 
     @PutMapping(value = "/{id}")
+    @PreAuthorize("hasRole('ROLE_USUARIO')")
     public ResponseEntity<UsuarioDTO> update(@RequestBody UsuarioDTO dto, @PathVariable Long id) {
         return ResponseEntity.ok().body(usuarioService.update(dto, id));
     }
 
     @DeleteMapping(value = "/{id}")
+    @PreAuthorize("hasRole('ROLE_USUARIO')")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         usuarioService.delete(id);
         return ResponseEntity.noContent().build();
