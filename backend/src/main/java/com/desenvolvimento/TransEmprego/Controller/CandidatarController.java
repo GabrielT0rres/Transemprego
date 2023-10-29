@@ -22,6 +22,7 @@ public class CandidatarController {
 
     @PostMapping
     public ResponseEntity<UsuarioDTO> candidatar(@RequestBody UsuarioVagaDTO dto) {
+        
         return ResponseEntity.ok().body(usuarioVagaService.candidatar(dto));
     }
 }

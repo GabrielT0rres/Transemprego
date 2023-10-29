@@ -25,6 +25,7 @@ public class CustomPasswordAuthenticationToken extends OAuth2AuthorizationGrantA
 		
 		this.username = (String) additionalParameters.get("username");
 		this.password = (String) additionalParameters.get("password");
+
 		this.scopes = Collections.unmodifiableSet(
 				scopes != null ? new HashSet<>(scopes) : Collections.emptySet());
 	}
@@ -40,4 +41,5 @@ public class CustomPasswordAuthenticationToken extends OAuth2AuthorizationGrantA
 	public Set<String> getScopes() {
 		return this.scopes;
 	}
+
 }

@@ -19,6 +19,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.desenvolvimento.TransEmprego.DTO.UsuarioDTO;
 import com.desenvolvimento.TransEmprego.Service.UsuarioService;
+import com.desenvolvimento.TransEmprego.config.security.jwtUtil;
 
 @RestController
 @RequestMapping("/usuario")
@@ -36,9 +37,8 @@ public class UsuarioController {
     public ResponseEntity<UsuarioDTO> getOne(@PathVariable Long id) {
         return ResponseEntity.ok().body(usuarioService.findById(id));
     }
-    
+
     @PostMapping
-    @PreAuthorize("hasRole('ROLE_USUARIO')")
     public ResponseEntity<UsuarioDTO> create(@RequestBody UsuarioDTO dto) {
         UsuarioDTO dtoSalvo = usuarioService.create(dto);
         URI lcoation = ServletUriComponentsBuilder
@@ -50,16 +50,16 @@ public class UsuarioController {
         return ResponseEntity.created(lcoation).body(dtoSalvo);
     }
 
-    @PutMapping(value = "/{id}")
+    @PutMapping
     @PreAuthorize("hasRole('ROLE_USUARIO')")
     public ResponseEntity<UsuarioDTO> update(@RequestBody UsuarioDTO dto, @PathVariable Long id) {
-        return ResponseEntity.ok().body(usuarioService.update(dto, id));
+        return ResponseEntity.ok().body(usuarioService.update(dto, jwtUtil.getUserIdbyToken()));
     }
 
-    @DeleteMapping(value = "/{id}")
+    @DeleteMapping
     @PreAuthorize("hasRole('ROLE_USUARIO')")
-    public ResponseEntity<Void> delete(@PathVariable Long id) {
-        usuarioService.delete(id);
+    public ResponseEntity<Void> delete() {
+        usuarioService.delete(jwtUtil.getUserIdbyToken());
         return ResponseEntity.noContent().build();
     }
 }

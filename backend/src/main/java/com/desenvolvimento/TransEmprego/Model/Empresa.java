@@ -19,9 +19,6 @@ import lombok.Setter;
 @Table(name = "tb_empresa")
 public class Empresa extends User {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
     private String nomeFantasia;
     private String razaoSocial;
     private String cnpj;
@@ -40,4 +37,12 @@ public class Empresa extends User {
         super.email = dto.getEmail();
         super.senha = dto.getSenha();
     }
+
+    @Override
+    public String toString() {
+        return "Empresa ["+"id = "+this.id+"nomeFantasia=" + nomeFantasia + ", razaoSocial=" + razaoSocial + ", cnpj=" + cnpj + ", cep="
+                + cep + ", endereco=" + endereco + ", logradouro=" + logradouro + "]";
+    }
+
+    
 }

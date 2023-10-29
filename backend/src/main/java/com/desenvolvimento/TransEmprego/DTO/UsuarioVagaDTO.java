@@ -8,6 +8,5 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UsuarioVagaDTO {
-    Long idVaga;
-    Long idUsuario;
+    Long idVaga;    
 }

@@ -9,6 +9,7 @@ import com.desenvolvimento.TransEmprego.Model.Usuario;
 import com.desenvolvimento.TransEmprego.Model.Vaga;
 import com.desenvolvimento.TransEmprego.Repository.UsuarioRepository;
 import com.desenvolvimento.TransEmprego.Repository.VagaRepository;
+import com.desenvolvimento.TransEmprego.config.security.jwtUtil;
 
 import jakarta.transaction.Transactional;
 
@@ -23,7 +24,7 @@ public class UsuarioVagaService {
 
     @Transactional
     public UsuarioDTO candidatar(UsuarioVagaDTO dto) {
-        Usuario usuario = usuarioRepository.getReferenceById(dto.getIdUsuario());
+        Usuario usuario = usuarioRepository.getReferenceById(jwtUtil.getUserIdbyToken());
         Vaga vaga = vagaRepository.getReferenceById(dto.getIdVaga());
 
         usuario.getVagas().add(vaga);

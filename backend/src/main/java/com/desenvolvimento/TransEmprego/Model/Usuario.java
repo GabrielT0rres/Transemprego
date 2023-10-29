@@ -22,9 +22,6 @@ import lombok.Setter;
 @Table(name = "tb_usuario")
 public class Usuario extends User {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
     private String nomeCompleto;
     private String nomeSocial;
     private String endereco;

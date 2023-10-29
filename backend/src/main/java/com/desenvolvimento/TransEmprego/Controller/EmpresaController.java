@@ -19,6 +19,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.desenvolvimento.TransEmprego.DTO.EmpresaDTO;
 import com.desenvolvimento.TransEmprego.Service.EmpresaService;
+import com.desenvolvimento.TransEmprego.config.security.jwtUtil;
 
 @RestController
 @RequestMapping("/empresa")
@@ -37,9 +38,7 @@ public class EmpresaController {
         return ResponseEntity.ok().body(empresaService.findById(id));
     }
 
-    
     @PostMapping
-    @PreAuthorize("hasRole('ROLE_EMPRESA')")
     public ResponseEntity<EmpresaDTO> create(@RequestBody EmpresaDTO dto) {
         EmpresaDTO dtoSalvo = empresaService.create(dto);
         URI lcoation = ServletUriComponentsBuilder
@@ -51,16 +50,16 @@ public class EmpresaController {
         return ResponseEntity.created(lcoation).body(dtoSalvo);
     }
 
-    @PutMapping(value = "/{id}")
+    @PutMapping
     @PreAuthorize("hasRole('ROLE_EMPRESA')")
-    public ResponseEntity<EmpresaDTO> update(@RequestBody EmpresaDTO dto, @PathVariable Long id) {
-        return ResponseEntity.ok().body(empresaService.update(dto, id));
+    public ResponseEntity<EmpresaDTO> update(@RequestBody EmpresaDTO dto) {
+        return ResponseEntity.ok().body(empresaService.update(dto, jwtUtil.getUserIdbyToken()));
     }
 
-    @DeleteMapping(value = "/{id}")
+    @DeleteMapping
     @PreAuthorize("hasRole('ROLE_EMPRESA')")
-    public ResponseEntity<Void> delete(@PathVariable Long id) {
-        empresaService.delete(id);
+    public ResponseEntity<Void> delete() {
+        empresaService.delete(jwtUtil.getUserIdbyToken());
         return ResponseEntity.noContent().build();
     }
 

@@ -44,6 +44,8 @@ import org.springframework.security.oauth2.server.authorization.token.OAuth2Toke
 import org.springframework.security.oauth2.server.authorization.token.OAuth2TokenGenerator;
 import org.springframework.security.web.SecurityFilterChain;
 
+import com.desenvolvimento.TransEmprego.Model.User;
+import com.desenvolvimento.TransEmprego.Service.UserService;
 import com.desenvolvimento.TransEmprego.config.security.customgrant.CustomPasswordAuthenticationConverter;
 import com.desenvolvimento.TransEmprego.config.security.customgrant.CustomPasswordAuthenticationProvider;
 import com.desenvolvimento.TransEmprego.config.security.customgrant.CustomUserAuthorities;
@@ -67,6 +69,9 @@ public class AuthorizationServerConfig {
 	@Autowired	
 	private UserDetailsService userDetailsService;
 
+	@Autowired
+	private UserService userService;
+
 	@Bean
 	@Order(2)
 	public SecurityFilterChain asSecurityFilterChain(HttpSecurity http) throws Exception {
@@ -77,7 +82,7 @@ public class AuthorizationServerConfig {
 		http.getConfigurer(OAuth2AuthorizationServerConfigurer.class)
 			.tokenEndpoint(tokenEndpoint -> tokenEndpoint
 				.accessTokenRequestConverter(new CustomPasswordAuthenticationConverter())
-				.authenticationProvider(new CustomPasswordAuthenticationProvider(authorizationService(), tokenGenerator(), userDetailsService, passwordEncoder())));
+				.authenticationProvider(new CustomPasswordAuthenticationProvider(authorizationService(), tokenGenerator(), userService, passwordEncoder())));
 
 		http.oauth2ResourceServer(oauth2ResourceServer -> oauth2ResourceServer.jwt(Customizer.withDefaults()));
 		// @formatter:on
@@ -150,14 +155,16 @@ public class AuthorizationServerConfig {
 	@Bean
 	public OAuth2TokenCustomizer<JwtEncodingContext> tokenCustomizer() {
 		return context -> {
-			OAuth2ClientAuthenticationToken principal = context.getPrincipal();
+			OAuth2ClientAuthenticationToken principal = context.getPrincipal();			
+
 			CustomUserAuthorities user = (CustomUserAuthorities) principal.getDetails();
 			List<String> authorities = user.getAuthorities().stream().map(x -> x.getAuthority()).toList();
-			if (context.getTokenType().getValue().equals("access_token")) {
+			if (context.getTokenType().getValue().equals("access_token")) {								
 				// @formatter:off
 				context.getClaims()
 					.claim("authorities", authorities)
-					.claim("username", user.getUsername());
+					.claim("username", user.getUsername())
+					.claim("userId", user.getId());
 				// @formatter:on
 			}
 		};
