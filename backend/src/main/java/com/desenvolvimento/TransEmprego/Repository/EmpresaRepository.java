@@ -5,7 +5,8 @@ import org.springframework.stereotype.Repository;
 
 import com.desenvolvimento.TransEmprego.Model.Empresa;
 
+
 @Repository
 public interface EmpresaRepository extends JpaRepository<Empresa, Long> {
-    
+    Empresa findByEmail(String email);
 }

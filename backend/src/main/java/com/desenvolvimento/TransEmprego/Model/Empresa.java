@@ -37,5 +37,7 @@ public class Empresa extends User {
         this.cep = dto.getCep();
         this.endereco = dto.getEndereco();
         this.logradouro = dto.getLogradouro();
+        super.email = dto.getEmail();
+        super.senha = dto.getSenha();
     }
 }

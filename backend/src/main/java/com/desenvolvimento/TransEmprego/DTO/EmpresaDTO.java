@@ -17,6 +17,8 @@ public class EmpresaDTO {
     private String cep;
     private String endereco;
     private String logradouro;
+    private String email;
+    private String senha;    
 
     public EmpresaDTO(Empresa empresa) {
         this.id = empresa.getId();
@@ -26,5 +28,7 @@ public class EmpresaDTO {
         this.cep = empresa.getCep();
         this.endereco = empresa.getEndereco();
         this.logradouro = empresa.getLogradouro();
+        this.email = empresa.getEmail();
+        this.senha = empresa.getSenha();    
     }
 }
