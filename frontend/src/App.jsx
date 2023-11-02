@@ -11,10 +11,13 @@ function App() {
   return (
     <>
       <Routes>
+        {/*Publicos*/}
         <Route path='/' element={<Home />} />
         <Route path='/vagas' element={<Vagas />} />
         <Route path='/login' element={<Login />} />
         <Route path='/cadastro' element={<Cadastro />} />
+        
+        {/*Privados*/}        
         <Route path='/empresa' element={<Empresa />} />
         <Route path='/perfil/cadastro' element={<PerfilCadastro />} />
       </Routes>

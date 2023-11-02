@@ -21,6 +21,8 @@ const Input = (props) => {
         type={props.type}
         name={props.nome}
         id={props.id}
+        value={props.value}
+        onChange={props.onChange}
         placeholder={props.placeholder}
         className={`${style.input} `}
         onFocus={handleFocus}
