@@ -9,7 +9,6 @@ import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -41,7 +40,7 @@ public class CustomPasswordAuthenticationProvider implements AuthenticationProvi
 	private final UserDetailsService userDetailsService;
 	private final OAuth2TokenGenerator<? extends OAuth2Token> tokenGenerator;
 	private final PasswordEncoder passwordEncoder;
-	private Long id = 0L;
+
 	private String username = "";
 	private String password = "";
 	private Set<String> authorizedScopes = new HashSet<>();
@@ -78,6 +77,11 @@ public class CustomPasswordAuthenticationProvider implements AuthenticationProvi
 			throw new OAuth2AuthenticationException("Invalid credentials");
 		}
 
+		System.out.println("username: " + user.getEmail());
+		System.out.println("password: " + user.getPassword());
+		System.out.println("grant: " + user.getAuthorities());
+		System.out.println("grant: " + user.getAuthorities());
+	
 		if (!passwordEncoder.matches(password, user.getPassword()) || !user.getUsername().equals(username)) {
 			throw new OAuth2AuthenticationException("Invalid credentials");
 		}

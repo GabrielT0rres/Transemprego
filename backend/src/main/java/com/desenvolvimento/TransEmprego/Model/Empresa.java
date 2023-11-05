@@ -1,10 +1,9 @@
 package com.desenvolvimento.TransEmprego.Model;
 
 import com.desenvolvimento.TransEmprego.DTO.EmpresaDTO;
+import com.desenvolvimento.TransEmprego.DTO.EmpresaSimpleDTO;
+
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -38,10 +37,11 @@ public class Empresa extends User {
         super.senha = dto.getSenha();
     }
 
-    @Override
-    public String toString() {
-        return "Empresa ["+"id = "+this.id+"nomeFantasia=" + nomeFantasia + ", razaoSocial=" + razaoSocial + ", cnpj=" + cnpj + ", cep="
-                + cep + ", endereco=" + endereco + ", logradouro=" + logradouro + "]";
+    public Empresa(EmpresaSimpleDTO dto) {
+        this.id = dto.getId();
+        this.nomeFantasia = dto.getNomeFantasia();
+        this.razaoSocial = dto.getRazaoSocial();
+        this.cnpj = dto.getCnpj();
     }
 
     

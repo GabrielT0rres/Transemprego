@@ -1,38 +1,3 @@
- export const CARDS_DATA = [
-    {
-        empresa: "Atlas Shinidezer",
-        vaga: "Assistente Administrativo",
-        local: "Cascavel, PR"
-    },
-    {
-        empresa: "Hospital Sírio-Libanês",
-        vaga: "Técnico de Serviços Junior",
-        local: "Curitiba, PR"
-    },
-    {
-        empresa: "Hospital Sírio-Libanês",
-        vaga: "Técnico de Informatica",
-        local: "Rio de Janeiro, RJ"
-    },
-    {
-        empresa: "TechCorp",
-        vaga: "Desenvolvedor Frontend",
-        local: "São Paulo, SP"
-    },
-    {
-        empresa: "Salão Beleza Moderna",
-        vaga: "Cabeleireiro",
-        local: "Rio de Janeiro, RJ"
-    },
-    {
-        empresa: "Loja Vestir Bem",
-        vaga: "Vendedor",
-        local: "Porto Alegre, RS"
-    }
-];
-
-
-
 
 export const INPUT_FIELDS_EMPRESA = [
     {

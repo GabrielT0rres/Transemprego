@@ -66,7 +66,7 @@ public class ResourceServerConfig {
 	CorsConfigurationSource corsConfigurationSource() {
 
 		String[] origins = corsOrigins.split(",");
-
+		
 		CorsConfiguration corsConfig = new CorsConfiguration();
 		corsConfig.setAllowedOriginPatterns(Arrays.asList(origins));
 		corsConfig.setAllowedMethods(Arrays.asList("POST", "GET", "PUT", "DELETE", "PATCH"));

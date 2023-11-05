@@ -24,7 +24,7 @@ const Login = () => {
         <div className={`${style.div_login} bg_black_1200 `}>
             <div>
                 <h1 className={`${style.h1} mb-4`}>Login</h1>
-                <p className={`${style.p}`}>Novo neste site? <Link className={`${style.link}`}>Registre-se</Link></p>
+                <p className={`${style.p}`}>Novo neste site? <Link to={'/cadastro'} className={`${style.link}`}>Registre-se</Link></p>
             </div>
             <form onSubmit={(e) => onSubmit(e) }>
                 <div className={`d-flex flex-column gap-4`}>

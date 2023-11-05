@@ -21,15 +21,17 @@ async function loginPost(data) {
     })
 }
 
+
 const useLogin = () => {        
     const navigate = useNavigate();    
-    const { login } = useAuth();
+    const { login, setInfoUser } = useAuth();
     return useMutation({
         mutationKey: 'LOGIN-KEY',
         mutationFn: (data) => loginPost(data),
-        onSuccess: (data) => {  
-            console.log(data)
-            localStorage.setItem("user_token", JSON.stringify(data.data));
+        onSuccess: async (data) => {  
+            localStorage.setItem("user_token", JSON.stringify(data.data));            
+            await setInfoUser();
+            
             login();         
             return navigate("/");
         }

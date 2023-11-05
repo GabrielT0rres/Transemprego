@@ -6,7 +6,7 @@ import useAuth from '../../hooks/useAuth'
 import ButtonRound from '../ButtonRound'
 
 const Navbar = () => {
-    const { user } = useAuth()
+    const { signed, signout } = useAuth()
 
     return (
         <nav className={style.nav}>
@@ -15,14 +15,18 @@ const Navbar = () => {
                     <h1 >Trans</h1>
                 </Link>
             </div>
-            {user ?
-                <div>
-                    <IconProfile src={avatar} nome="Emilly Castro" />
+            {signed ?
+                <div className='d-flex gap-4'>
+                    <IconProfile src={avatar} nome={JSON.parse(localStorage.getItem('user_data')).nomeSocial} />
+                    <ButtonRound onClick={() => { signout() }}   nome="Sair" />
                 </div>
                 :
-                <div>
+                <div className='d-flex gap-4'>
                     <Link to="/login">
                         <ButtonRound nome="Entrar" />
+                    </Link>
+                    <Link to="/cadastro">
+                        <ButtonRound nome="Cadastrar-se" />
                     </Link>
                 </div>
             }

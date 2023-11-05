@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import com.desenvolvimento.TransEmprego.DTO.VagaDTO;
+import com.desenvolvimento.TransEmprego.DTO.VagaSimpleDTO;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -69,5 +70,12 @@ public class Vaga {
         dto.getUsuarios().forEach(usuario -> {
             this.usuarios.add(new Usuario(usuario));
         });
+    }
+
+    public Vaga(VagaSimpleDTO dto) {
+        this.id = dto.getId();
+        this.cargo = dto.getCargo();
+        this.descricaoVaga = dto.getDescricaoVaga();
+        this.empresa = new Empresa(dto.getEmpresa());
     }
 }

@@ -19,7 +19,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.desenvolvimento.TransEmprego.DTO.EmpresaDTO;
 import com.desenvolvimento.TransEmprego.Service.EmpresaService;
-import com.desenvolvimento.TransEmprego.config.security.jwtUtil;
+import com.desenvolvimento.TransEmprego.config.security.JwtUtil;
 
 @RestController
 @RequestMapping("/empresa")
@@ -53,13 +53,13 @@ public class EmpresaController {
     @PutMapping
     @PreAuthorize("hasRole('ROLE_EMPRESA')")
     public ResponseEntity<EmpresaDTO> update(@RequestBody EmpresaDTO dto) {
-        return ResponseEntity.ok().body(empresaService.update(dto, jwtUtil.getUserIdbyToken()));
+        return ResponseEntity.ok().body(empresaService.update(dto, JwtUtil.getUserIdbyToken()));
     }
 
     @DeleteMapping
     @PreAuthorize("hasRole('ROLE_EMPRESA')")
     public ResponseEntity<Void> delete() {
-        empresaService.delete(jwtUtil.getUserIdbyToken());
+        empresaService.delete(JwtUtil.getUserIdbyToken());
         return ResponseEntity.noContent().build();
     }
 

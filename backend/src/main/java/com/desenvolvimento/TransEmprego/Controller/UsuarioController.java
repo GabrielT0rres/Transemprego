@@ -19,7 +19,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.desenvolvimento.TransEmprego.DTO.UsuarioDTO;
 import com.desenvolvimento.TransEmprego.Service.UsuarioService;
-import com.desenvolvimento.TransEmprego.config.security.jwtUtil;
+import com.desenvolvimento.TransEmprego.config.security.JwtUtil;
 
 @RestController
 @RequestMapping("/usuario")
@@ -38,6 +38,12 @@ public class UsuarioController {
         return ResponseEntity.ok().body(usuarioService.findById(id));
     }
 
+    @GetMapping(value = "/perfil")
+    @PreAuthorize("hasRole('ROLE_USUARIO')")
+    public ResponseEntity<UsuarioDTO> getOneProfile() {        
+        return ResponseEntity.ok().body(usuarioService.findById(JwtUtil.getUserIdbyToken()));
+    }
+
     @PostMapping
     public ResponseEntity<UsuarioDTO> create(@RequestBody UsuarioDTO dto) {
         UsuarioDTO dtoSalvo = usuarioService.create(dto);
@@ -52,14 +58,14 @@ public class UsuarioController {
 
     @PutMapping
     @PreAuthorize("hasRole('ROLE_USUARIO')")
-    public ResponseEntity<UsuarioDTO> update(@RequestBody UsuarioDTO dto, @PathVariable Long id) {
-        return ResponseEntity.ok().body(usuarioService.update(dto, jwtUtil.getUserIdbyToken()));
+    public ResponseEntity<UsuarioDTO> update(@RequestBody UsuarioDTO dto) {        
+        return ResponseEntity.ok().body(usuarioService.update(dto, JwtUtil.getUserIdbyToken()));
     }
 
     @DeleteMapping
     @PreAuthorize("hasRole('ROLE_USUARIO')")
     public ResponseEntity<Void> delete() {
-        usuarioService.delete(jwtUtil.getUserIdbyToken());
+        usuarioService.delete(JwtUtil.getUserIdbyToken());
         return ResponseEntity.noContent().build();
     }
 }

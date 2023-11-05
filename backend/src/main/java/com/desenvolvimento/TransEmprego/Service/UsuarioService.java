@@ -3,6 +3,7 @@ package com.desenvolvimento.TransEmprego.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,6 +16,9 @@ public class UsuarioService {
 
     @Autowired
     private UsuarioRepository usuarioRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Transactional(readOnly = true)
     public Page<UsuarioDTO> getAllPaged(Pageable pageable) {
@@ -29,7 +33,12 @@ public class UsuarioService {
 
     @Transactional
     public UsuarioDTO create(UsuarioDTO dto) {
-        return new UsuarioDTO(usuarioRepository.save(new Usuario(dto)));
+        
+        Usuario usuario = new Usuario(dto);
+
+        usuario.setSenha(passwordEncoder.encode(dto.getSenha()));
+     
+        return new UsuarioDTO(usuarioRepository.save(usuario));
     }
 
     @Transactional

@@ -66,9 +66,6 @@ public class AuthorizationServerConfig {
 	@Value("${security.jwt.duration}")
 	private Integer jwtDurationSeconds;
 
-	@Autowired	
-	private UserDetailsService userDetailsService;
-
 	@Autowired
 	private UserService userService;
 
