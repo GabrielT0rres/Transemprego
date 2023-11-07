@@ -1,7 +1,6 @@
 package com.desenvolvimento.TransEmprego.DTO;
 
 
-import com.desenvolvimento.TransEmprego.Model.Empresa;
 import com.desenvolvimento.TransEmprego.Model.Vaga;
 
 import lombok.AllArgsConstructor;

@@ -15,7 +15,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.core.AuthorizationGrantType;
@@ -44,7 +43,6 @@ import org.springframework.security.oauth2.server.authorization.token.OAuth2Toke
 import org.springframework.security.oauth2.server.authorization.token.OAuth2TokenGenerator;
 import org.springframework.security.web.SecurityFilterChain;
 
-import com.desenvolvimento.TransEmprego.Model.User;
 import com.desenvolvimento.TransEmprego.Service.UserService;
 import com.desenvolvimento.TransEmprego.config.security.customgrant.CustomPasswordAuthenticationConverter;
 import com.desenvolvimento.TransEmprego.config.security.customgrant.CustomPasswordAuthenticationProvider;
