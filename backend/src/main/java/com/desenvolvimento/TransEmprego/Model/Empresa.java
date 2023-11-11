@@ -35,6 +35,7 @@ public class Empresa extends User {
         this.logradouro = dto.getLogradouro();
         super.email = dto.getEmail();
         super.senha = dto.getSenha();
+        super.roles = "ROLE_EMPRESA";
     }
 
     public Empresa(EmpresaSimpleDTO dto) {

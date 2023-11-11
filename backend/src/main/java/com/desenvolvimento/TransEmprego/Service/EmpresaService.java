@@ -5,6 +5,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.desenvolvimento.TransEmprego.DTO.EmpresaDTO;
 import com.desenvolvimento.TransEmprego.Model.Empresa;
@@ -15,6 +16,9 @@ public class EmpresaService {
 
     @Autowired
     private EmpresaRepository empresaRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Transactional(readOnly = true)
     public Page<EmpresaDTO> getAllPaged(Pageable pageable) {
@@ -28,7 +32,9 @@ public class EmpresaService {
 
     @Transactional
     public EmpresaDTO create(EmpresaDTO dto) {
-        return new EmpresaDTO(empresaRepository.save(new Empresa(dto)));
+        Empresa empresa = new Empresa(dto);
+        empresa.setSenha(passwordEncoder.encode(dto.getSenha()));
+        return new EmpresaDTO(empresaRepository.save(empresa));
     }
 
     @Transactional
