@@ -74,7 +74,6 @@ const Home = () => {
                         <CardLoading />
                         <CardLoading />
                         <CardLoading />
-                        <CardLoading />
                     </>
                 ) : query.isError ? (
                     <div className={style.error404}>Error: {query.error.message}</div>
