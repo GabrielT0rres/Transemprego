@@ -76,7 +76,6 @@ const PerfilCadastro = () => {
     if (auth.signed && query.isLoading) {
         return (
             <div>
-                {/* <h1>{auth.user}</h1> */}
                 <h2>{auth.signed}</h2>
             </div>
             

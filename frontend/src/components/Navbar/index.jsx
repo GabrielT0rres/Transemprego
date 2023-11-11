@@ -4,6 +4,7 @@ import avatar from '../../assets/Ellipse 2.svg'
 import { Link } from 'react-router-dom'
 import useAuth from '../../Hooks/useAuth'
 import ButtonRound from '../ButtonRound'
+import logo from '../../assets/Logo site (2).svg'
 
 const Navbar = () => {
     const { signed, signout } = useAuth()
@@ -12,7 +13,7 @@ const Navbar = () => {
         <nav className={style.nav}>
             <div>
                 <Link to="/">
-                    <h1 >Trans</h1>
+                    <img className={style.logo} src={logo} alt="" />
                 </Link>
             </div>
             {signed ?

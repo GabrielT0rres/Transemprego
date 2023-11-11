@@ -65,8 +65,8 @@ const Home = () => {
             </div>
             <div className={style.selects}>
                 <FilterSelect defaultOption="Estado" options={['Bahia', 'São Paulo', 'Minas Gerais']} />
-                <FilterSelect defaultOption="Ensino" options={['Bahia', 'São Paulo', 'Minas Gerais']} />
-                <FilterSelect defaultOption="Tipo" options={['Bahia', 'São Paulo', 'Minas Gerais']} />
+                <FilterSelect defaultOption="Ensino" options={['Ens. Fundamental', 'Ens. Médio', 'Jovem Aprendiz', 'Ens. Superior']} />
+                <FilterSelect defaultOption="Tipo" options={['Anúncios individuais', 'Cursos e atividades', 'Home Office']} />
             </div>
             <div className={style.cards}>
                 {query.isLoading || !showContent ? (
