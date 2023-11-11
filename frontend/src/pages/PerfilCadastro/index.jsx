@@ -8,7 +8,7 @@ import { useState } from 'react';
 import { useMutation, useQuery, useQueryClient } from 'react-query';
 import axios from 'axios';
 import api from '../../constants/api';
-import useAuth from '../../hooks/useAuth';
+import useAuth from '../../Hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
 
 

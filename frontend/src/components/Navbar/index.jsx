@@ -2,7 +2,7 @@ import style from './style.module.css'
 import IconProfile from '../IconProfile'
 import avatar from '../../assets/Ellipse 2.svg'
 import { Link } from 'react-router-dom'
-import useAuth from '../../hooks/useAuth'
+import useAuth from '../../Hooks/useAuth'
 import ButtonRound from '../ButtonRound'
 
 const Navbar = () => {
