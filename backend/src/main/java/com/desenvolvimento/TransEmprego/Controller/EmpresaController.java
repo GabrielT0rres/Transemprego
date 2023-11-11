@@ -38,6 +38,12 @@ public class EmpresaController {
         return ResponseEntity.ok().body(empresaService.findById(id));
     }
 
+    @GetMapping(value = "/perfil")
+    @PreAuthorize("hasRole('ROLE_USUARIO')")
+    public ResponseEntity<EmpresaDTO> getOneProfile() {
+        return ResponseEntity.ok().body(empresaService.findById(JwtUtil.getUserIdbyToken()));
+    }
+
     @PostMapping
     public ResponseEntity<EmpresaDTO> create(@RequestBody EmpresaDTO dto) {
         EmpresaDTO dtoSalvo = empresaService.create(dto);
