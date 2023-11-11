@@ -1,7 +1,7 @@
 import style from './style.module.css'
 import ButtonRound from '../ButtonRound'
 import ButtonFlat from '../ButtonFlat';
-import useAuth from '../../hooks/useAuth';
+import useAuth from '../../Hooks/useAuth';
 
 const Card = (props) => {
     const auth = useAuth();

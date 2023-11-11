@@ -2,7 +2,7 @@ import Input from "../../components/Input";
 import ButtonFlat from "../../components/ButtonFlat"
 import style from "./style.module.css"
 import { useState } from "react";
-import useAuth from "../../hooks/useAuth";
+import useAuth from "../../Hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 
 

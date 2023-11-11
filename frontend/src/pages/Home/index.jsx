@@ -10,7 +10,7 @@ import api from "../../constants/api";
 import { useMutation, useQuery } from 'react-query'
 import CardLoading from '../../components/CardLoading'
 import { useState, useEffect } from 'react'
-import useAuth from '../../hooks/useAuth'
+import useAuth from '../../Hooks/useAuth'
 const Home = () => {
     const [showContent, setShowContent] = useState(false);
     const auth = useAuth();
