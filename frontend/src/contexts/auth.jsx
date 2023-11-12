@@ -21,12 +21,23 @@ export const AuthProvider = ({ children }) => {
     };
 
     const setInfoUser = async () => {
-        const userData = await axios.get(`${api.URL_API}/usuario/perfil`, {
+        var type = { "type": "usuario" }
+        
+        var userData = await axios.get(`${api.URL_API}/usuario/perfil`, {
             headers: {
                 "Authorization": `Bearer ${JSON.parse(localStorage.getItem("user_token")).access_token}`
             }
-        })        
-        localStorage.setItem("user_data", JSON.stringify(userData.data));
+        }) 
+        console.log(userData.data)
+        if (userData.data.erro === 403) {
+            type = {"type" : "empresa"}
+            userData = await axios.get(`${api.URL_API}/empresa/perfil`, {
+                headers: {
+                    "Authorization": `Bearer ${JSON.parse(localStorage.getItem("user_token")).access_token}`
+                }
+            })  
+        }
+        localStorage.setItem("user_data", JSON.stringify(userData.data), type);
         setUser({ user, ...userData.data });
     }
 
