@@ -146,7 +146,9 @@ const PerfilCadastro = () => {
                             ...dados,
                             objetivoProfissional: e.target.value
                         })} />
+                        <div className={style.buttonSalvarInformações}>
                     <ButtonFlat nome="Salvar Informações" />
+                        </div>
                 </form>
             </div>
         </div >

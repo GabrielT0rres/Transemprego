@@ -27,6 +27,8 @@ const Input = (props) => {
         className={`${style.input} `}
         onFocus={handleFocus}
         onBlur={handleBlur}
+        required
+        autoComplete=''
 
       />
     </div>

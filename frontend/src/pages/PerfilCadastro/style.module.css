@@ -1,17 +1,21 @@
 .card {    
-    margin: 150px 240px;    
+    margin: 4vw;    
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    padding: 60px;
+    padding: 4vw;
     position: relative;
+    padding-top: 10vw;
 }
 
 .card::before {
     content: "Perfil";
     position: absolute;
-    top: -40px;
-    font-size: 32px;
+    top: 10px;
+    font-size: 4vw;
     border-bottom: solid 4px #EFADCE;
-    width: 170px;
+    width: 50vw;
     font-family: "Open Sans";
     font-weight: bold;
+}
+.buttonSalvarInformações{
+    margin-top: 15px;
 }
