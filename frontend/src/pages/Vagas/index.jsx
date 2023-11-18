@@ -17,19 +17,6 @@ const Vagas = () => {
     const auth = useAuth();
     var query;
 
-    if (auth.signed) {
-        query = useQuery({
-            queryKey: 'CADASTRO-KEY',
-            retry: 2,
-            queryFn: async () => {
-                return await axios.get(`${api.URL_API}/vagas/1`, {
-                    headers: {
-                        "Authorization": `Bearer ${JSON.parse(localStorage.getItem("user_token")).access_token}`
-                    }
-                })
-            }
-        });
-    }
 
     async function mutationPut(data) {
         return await axios({
@@ -43,12 +30,17 @@ const Vagas = () => {
     }
 
     async function mutationPost(data) {
-        data = { ...data, ...auth.user }
+        data = {
+            ...data, ...{ 'empresa': { 'id': auth.user.id } }
+        }
 
         return await axios({
             url: `${api.URL_API}/vagas`,
             method: 'POST',
-            data: data
+            data: data,
+            headers: {
+                "Authorization": `Bearer ${JSON.parse(localStorage.getItem("user_token")).access_token}`
+            }
         })
     }
     const mutation = useMutation({
@@ -56,19 +48,18 @@ const Vagas = () => {
         onSuccess: async () => {
             queryClient.invalidateQueries('CADASTRO-KEY')
         },
-        mutationFn: auth.signed ?
-            (dados) => mutationPut(dados) :
+        mutationFn:
             (dados) => mutationPost(dados),
     });
 
 
-    if (auth.signed && query.isLoading) {
-        return (
-            <div>
-                <h2>{auth.signed}</h2>
-            </div>
-        )
-    }
+    // if (auth.signed && query.isLoading) {
+    //     return (
+    //         <div>
+    //             <h2>{auth.signed}</h2>
+    //         </div>
+    //     )
+    // }
 
     function onSubmit(e) {
         e.preventDefault();

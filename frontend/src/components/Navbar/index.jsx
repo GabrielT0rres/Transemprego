@@ -7,7 +7,7 @@ import ButtonRound from '../ButtonRound'
 import logo from '../../assets/icone-logo.svg'
 
 const Navbar = () => {
-    const { signed, signout } = useAuth()
+    const { signed, signout, user } = useAuth()
 
     return (
         <nav className={style.nav}>
@@ -17,10 +17,19 @@ const Navbar = () => {
                 </Link>
             </div>
             {signed ?
-                <div className='d-flex gap-4'>
-                    <IconProfile src={avatar} nome={JSON.parse(localStorage.getItem('user_data')).nomeSocial} />
-                    <ButtonRound onClick={() => { signout() }}   nome="Sair" />
-                </div>
+                user.type === 'usuario' ?
+                    <div className='d-flex gap-4'>
+                        <IconProfile src={avatar} nome={JSON.parse(localStorage.getItem('user_data')).nomeSocial} />
+                        <ButtonRound onClick={() => { signout() }} nome="Sair" />
+                    </div>
+                    :
+                    <div className='d-flex gap-4'>
+                        <IconProfile src={avatar} nome={JSON.parse(localStorage.getItem('user_data')).nomeSocial} />
+                        <Link to="/vagas">
+                            <ButtonRound nome="Vagas" />
+                        </Link>
+                        <ButtonRound onClick={() => { signout() }} nome="Sair" />
+                    </div>
                 :
                 <div className='d-flex gap-4'>
                     <Link to="/login">

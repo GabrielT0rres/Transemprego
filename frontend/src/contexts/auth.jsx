@@ -22,23 +22,25 @@ export const AuthProvider = ({ children }) => {
 
     const setInfoUser = async () => {
         var type = { "type": "usuario" }
-        
-        var userData = await axios.get(`${api.URL_API}/usuario/perfil`, {
-            headers: {
-                "Authorization": `Bearer ${JSON.parse(localStorage.getItem("user_token")).access_token}`
-            }
-        }) 
-        console.log(userData.data)
-        if (userData.data.erro === 403) {
-            type = {"type" : "empresa"}
+        try {
+            var userData = await axios.get(`${api.URL_API}/usuario/perfil`, {
+                headers: {
+                    "Authorization": `Bearer ${JSON.parse(localStorage.getItem("user_token")).access_token}`
+                }
+            })
+        }
+        catch {
+            type = { "type": "empresa" }
             userData = await axios.get(`${api.URL_API}/empresa/perfil`, {
                 headers: {
                     "Authorization": `Bearer ${JSON.parse(localStorage.getItem("user_token")).access_token}`
                 }
-            })  
+            })
         }
-        localStorage.setItem("user_data", JSON.stringify(userData.data), type);
-        setUser({ user, ...userData.data });
+        finally {
+            localStorage.setItem("user_data", JSON.stringify({ ...userData.data, ...type }));
+            setUser({ user, ...userData.data, ...type });
+        }
     }
 
     const register = (data) => {
@@ -55,7 +57,7 @@ export const AuthProvider = ({ children }) => {
                 ...JSON.parse(userToken)
             }
         };
-        
+
         setUser(merged);
     }
 
