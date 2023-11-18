@@ -39,7 +39,7 @@ public class EmpresaController {
     }
 
     @GetMapping(value = "/perfil")
-    @PreAuthorize("hasRole('ROLE_USUARIO')")
+    @PreAuthorize("hasRole('ROLE_EMPRESA')")
     public ResponseEntity<EmpresaDTO> getOneProfile() {
         return ResponseEntity.ok().body(empresaService.findById(JwtUtil.getUserIdbyToken()));
     }
